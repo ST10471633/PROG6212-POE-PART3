@@ -1,0 +1,25 @@
+﻿@model RaceDayMVC.Models.EventType
+
+@{
+    ViewData["Title"] = "Edit Event Type";
+}
+
+<div class="container mt-4" style="max-width: 600px;">
+    <h2>Edit Event Type</h2>
+
+    <form asp-action="Edit" asp-route-id="@Model.EventTypeID" method="post">
+        @Html.AntiForgeryToken()
+        <input asp-for="EventTypeID" type="hidden" />
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="EventTypeName" class="form-label">Event Type Name</label>
+            <input asp-for="EventTypeName" class="form-control" />
+            <span asp-validation-for="EventTypeName" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Event Type</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
